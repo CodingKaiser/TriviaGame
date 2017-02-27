@@ -1,0 +1,41 @@
+body, html {
+	min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'IM Fell English SC', serif;
+}
+
+button {
+	font-family: 'IM Fell English SC', serif;
+}
+
+body {
+	background-image: url('../images/sayagata-400px.png');
+	background-repeat: repeat;
+}
+
+.answer {
+	display: inline-block;
+}
+
+.answer:hover {
+	cursor: pointer;
+	border: 1px solid purple;
+}
+
+#main-title {
+	padding: 20px;
+	background-color: white;
+}
+
+#main-content-area {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 400px;
+}
+
+#start-game-btn {
+	font-size: 2em;
+}
