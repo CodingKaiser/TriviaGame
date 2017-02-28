@@ -16,17 +16,26 @@ body {
 }
 
 .answer {
-	display: inline-block;
+	display: table;
+	padding: 5px;
 }
 
 .answer:hover {
 	cursor: pointer;
 	border: 1px solid purple;
+	background: white;
+}
+
+.question-graphic {
+	width: 300px;
 }
 
 #main-title {
 	padding: 20px;
+	color: white;
 	background-color: white;
+	background-image: url('../images/decemberists-collage-1.jpg');
+	background-size: 100%;
 }
 
 #main-content-area {
@@ -38,4 +47,9 @@ body {
 
 #start-game-btn {
 	font-size: 2em;
+}
+
+#wrapper {
+	background-image: url('../images/content-background-1.jpg');
+	background-size: cover;
 }

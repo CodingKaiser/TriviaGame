@@ -1,9 +1,9 @@
 $(document).ready(function() {
-	var questions = [["Complete the lyric: 'Boys all in idle, left to their own devices open up your linen lap and let me go...'", 0, ["Down, down, down", "Up, up, up", "To the Left, to the Left", "Let slip a ribbon down"]],
-					 ["Complete the lyric: 'These currents pull us 'cross the border, Steady your boats, Arms to shoulder...'", 2, ["we'll build our walls aluminum", "we'll leave our tracks untraceable", "till tides will pull our hull aground", "we'll make our homes on the water"]],
-					 ["Which Park & Recreation actor was featured in a recent Decemberists music video?", 2, ["Amy Poehler", "Rashida Jones", "Nick Offerman", "Aziz Ansari"]],
-					 ["Lead singer Colin Meloy married Carson Ellis, who did <b>what</b> for the band?", 1, ["Managed the band in its infancy", "Draws the band's album art", "Served as the band's first drummer", "Having dated its bassist"]],
-					 ["Complete the lyric: 'But never once in the employ Of these holy men Did I ever once turn my mind from the thought of...", 3, ["Grizelda", "Lust", "You", "Revenge"]]
+	var questions = [["<u>Complete the lyric</u>: Boys all in idle, left to their own devices open up your linen lap and let me go...", 0, ["Down, down, down", "Up, up, up", "To the Left, to the Left", "Let slip a ribbon down"], "<img src='assets/images/q1Image.gif' class='center-block question-graphic thumbnail'>"],
+					 ["<u>Complete the lyric</u>: These currents pull us 'cross the border, Steady your boats, Arms to shoulder...", 2, ["we'll build our walls aluminum", "we'll leave our tracks untraceable", "till tides will pull our hull aground", "we'll make our homes on the water"], "<img src='assets/images/q2Image.gif' class='center-block question-graphic thumbnail'>"],
+					 ["Which Park & Recreation actor was featured in a recent Decemberists music video?", 2, ["Amy Poehler", "Rashida Jones", "Nick Offerman", "Aziz Ansari"], "<img src='assets/images/q3Image.gif' class='center-block question-graphic thumbnail'>"],
+					 ["Lead singer Colin Meloy married Carson Ellis, who did <b>what</b> for the band?", 1, ["Managed the band in its infancy", "Draws the band's album art", "Served as the band's first drummer", "Having dated its bassist"], "<img src='assets/images/q4Image.gif' class='center-block question-graphic thumbnail'>"],
+					 ["<u>Complete the lyric</u>: But never once in the employ Of these holy men Did I ever once turn my mind from the thought of...", 3, ["Grizelda", "Lust", "You", "Revenge"], "<img src='assets/images/q5Image.gif' class='center-block question-graphic thumbnail'>"]
 					];
 	var delay;
 	var timer;
@@ -49,9 +49,9 @@ $(document).ready(function() {
 		$("#main-content-area").append("<h2 id='time-counter' class='text-center'>Time Remaining: " + game.secondsRemaining + " Seconds</h2>");
 		$("#main-content-area").append("<h2 id='question' class='text-center'>" + getCurrentQuestion() + "</h2>");
 		for (var i = 0; i < getCurrentQuestionAnswers().length; i++) {
-			var answerDisplay = $("<h2></h2>");
+			var answerDisplay = $("<h3></h3>");
 			answerDisplay.attr("id", "answer" + i);
-			answerDisplay.addClass("answer text-center");
+			answerDisplay.addClass("answer center-block");
 			answerDisplay.text(getCurrentQuestionAnswers()[i]);
 			$("#main-content-area").append(answerDisplay);
 		}
@@ -82,8 +82,8 @@ $(document).ready(function() {
 			$("#main-content-area").append("<h3 class='text-center'>Time ran out!</h3>");
 			$("#main-content-area").append("<h3 class='text-center'>The correct answer was: '" + getCurrentQuestionAnswer() + "'</h3>");
 		}
-		$("#main-content-area").append("<img class='center-block' src='#'>");
-		delay = setTimeout(nextQuestionOrFinishGame, 3000);
+		$("#main-content-area").append(getCurrentQuestionGraphic());
+		delay = setTimeout(nextQuestionOrFinishGame, 4000);
 	}
 
 	function nextQuestionOrFinishGame() {
@@ -119,6 +119,10 @@ $(document).ready(function() {
 
 	function getCurrentQuestionAnswer() {
 		return getCurrentQuestionAnswers()[getCurrentQuestionAnswerIndex()];
+	};
+
+	function getCurrentQuestionGraphic() {
+		return questions[game.currentQuestionIndex][3];
 	}
 
 	function setUpTimer() {
