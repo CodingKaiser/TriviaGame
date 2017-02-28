@@ -71,13 +71,16 @@ $(document).ready(function() {
 			var answerIdDigit = parseInt(idOfAnswer[idOfAnswer.length-1]);
 			if (answerIdDigit === getCurrentQuestionAnswerIndex()) {
 				game.wins++;
+				(new Audio('assets/sounds/victory.wav')).play();
 				$("#main-content-area").append("<h3 class='text-center'>You Win!</h3>");
 			} else {
+				(new Audio('assets/sounds/defeat.wav')).play();
 				game.losses++;
 				$("#main-content-area").append("<h3 class='text-center'>You Lose!</h3>");
 				$("#main-content-area").append("<h3 class='text-center'>The correct answer was: '" + getCurrentQuestionAnswer() + "'</h3>");
 			}
 		} else {
+			(new Audio('assets/sounds/outatime.wav')).play();
 			game.skipped++;
 			$("#main-content-area").append("<h3 class='text-center'>Time ran out!</h3>");
 			$("#main-content-area").append("<h3 class='text-center'>The correct answer was: '" + getCurrentQuestionAnswer() + "'</h3>");
