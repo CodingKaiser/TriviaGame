@@ -131,6 +131,8 @@ $(document).ready(function() {
 		mainContentArea.append("<h3 class='text-center'>Incorrect Answers: " + game.losses + "</h3>");
 		mainContentArea.append("<h3 class='text-center'>Skipped Questions: " + game.skipped + "</h3>");
 		mainContentArea.append("<button id='start-game-btn' type='button' class='btn btn-default center-block'>Restart Game</button>");
+		clearInterval(timer);
+		clearTimeout(delay);
 		// Give player option to restart game
 		$("#start-game-btn").click(start);
 	}
