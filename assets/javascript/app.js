@@ -90,6 +90,7 @@ $(document).ready(function() {
 		}
 		mainContentArea.append(getCurrentQuestionGraphic());
 		delay = setTimeout(nextQuestionOrFinishGame, 4000);
+		clearInterval(timer);
 	}
 
 	function playerGaveCorrectAnswer() {
